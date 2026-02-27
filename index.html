@@ -265,6 +265,43 @@
     </div>
   </section>
 
+  <section class="reveal" style="margin-bottom:60px">
+    <h2 class="section-title">Live Ecosystem Status</h2>
+    <div class="packages-grid" id="ecosystem-status">
+      <div class="package-card" id="peer-brain"><div class="pkg-header"><div class="pkg-icon" style="background:linear-gradient(135deg,var(--red),var(--orange))">&#129504;</div><div><div class="pkg-name">Brain</div><div class="pkg-tag" style="color:var(--text3)">checking...</div></div></div><p class="pkg-desc">:7777</p></div>
+      <div class="package-card" id="peer-trading"><div class="pkg-header"><div class="pkg-icon" style="background:linear-gradient(135deg,var(--green),var(--cyan))">&#128176;</div><div><div class="pkg-name">Trading Brain</div><div class="pkg-tag" style="color:var(--text3)">checking...</div></div></div><p class="pkg-desc">:7779</p></div>
+      <div class="package-card" id="peer-marketing"><div class="pkg-header"><div class="pkg-icon" style="background:linear-gradient(135deg,var(--purple),var(--blue))">&#128227;</div><div><div class="pkg-name">Marketing Brain</div><div class="pkg-tag" style="color:var(--text3)">checking...</div></div></div><p class="pkg-desc">:7781</p></div>
+    </div>
+    <script>
+    (function(){
+      const brains = [
+        { id: 'peer-brain', url: 'http://localhost:7777/api/v1/health', name: 'Brain' },
+        { id: 'peer-trading', url: 'http://localhost:7779/api/v1/health', name: 'Trading Brain' },
+        { id: 'peer-marketing', url: 'http://localhost:7781/api/v1/health', name: 'Marketing Brain' },
+      ];
+      async function check() {
+        for (const b of brains) {
+          const card = document.getElementById(b.id);
+          if (!card) continue;
+          const tag = card.querySelector('.pkg-tag');
+          const desc = card.querySelector('.pkg-desc');
+          try {
+            const r = await fetch(b.url, { signal: AbortSignal.timeout(2000) });
+            const d = await r.json();
+            if (tag) { tag.textContent = 'online'; tag.style.color = 'var(--green)'; }
+            if (desc) desc.textContent = `v${d.version ?? '?'} \u2022 PID ${d.pid ?? '?'} \u2022 uptime ${Math.floor((d.uptime ?? 0) / 60)}m \u2022 ${d.methods ?? '?'} methods`;
+          } catch {
+            if (tag) { tag.textContent = 'offline'; tag.style.color = 'var(--red)'; }
+            if (desc) desc.textContent = 'Not running';
+          }
+        }
+      }
+      check();
+      setInterval(check, 30000);
+    })();
+    </script>
+  </section>
+
   <div class="sponsor reveal">
     <h2>&#10084;&#65039; Support the Ecosystem</h2>
     <p>Brain is free and open source. If it saves you time, consider sponsoring.</p>
