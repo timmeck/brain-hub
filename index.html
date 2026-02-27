@@ -120,13 +120,21 @@
     <h1>The <span class="gradient">Brain</span> Ecosystem</h1>
     <p>Open-source MCP servers that give Claude Code persistent memory, adaptive learning, and cross-domain intelligence. Each brain learns from every interaction and gets smarter over time.</p>
     <div class="hero-actions">
-      <a href="https://github.com/timmeck" class="btn btn-primary">View on GitHub</a>
+      <a href="https://github.com/timmeck/brain" class="btn btn-primary">View on GitHub</a>
+      <a href="https://smithery.ai/server/@timmeck/brain" class="btn btn-secondary">Smithery</a>
       <a href="#brains" class="btn btn-secondary">Explore Brains</a>
     </div>
   </section>
 
+  <div class="install reveal" style="margin-bottom:20px">
+    <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:16px;color:var(--text)">Get Started in 30 Seconds</h3>
+    <div class="install-cmd" style="margin-bottom:12px">npm install -g @timmeck/brain && brain setup</div>
+    <p style="color:var(--text3);font-size:.82rem;margin-top:10px">One command. Configures MCP server, hooks, and daemon. Brain starts learning immediately.</p>
+  </div>
+
   <div class="install reveal">
-    <div class="install-cmd">npm install -g @timmeck/brain @timmeck/trading-brain @timmeck/marketing-brain</div>
+    <div class="install-cmd" style="font-size:.85rem;color:var(--text2)">npm install -g @timmeck/trading-brain @timmeck/marketing-brain</div>
+    <p style="color:var(--text3);font-size:.78rem;margin-top:8px">Optional: add trading intelligence and marketing intelligence</p>
   </div>
 
   <section id="brains">
@@ -137,7 +145,7 @@
         <div class="brain-icon">&#129504;</div>
         <h3>Brain</h3>
         <div class="pkg">@timmeck/brain</div>
-        <p>Adaptive error memory and code intelligence. Learns from every error, finds solutions via synapse network, prevents recurring bugs. <em style="color:var(--text3);font-size:.8rem">v2.0.0</em></p>
+        <p>Adaptive error memory and code intelligence. Learns from every error, finds solutions via synapse network, prevents recurring bugs. <em style="color:var(--text3);font-size:.8rem">v2.1.0</em></p>
         <div class="brain-tags">
           <span class="brain-tag">Error Memory</span>
           <span class="brain-tag">Hebbian Learning</span>
@@ -154,7 +162,7 @@
         <div class="brain-icon">&#128185;</div>
         <h3>Trading Brain</h3>
         <div class="pkg">@timmeck/trading-brain</div>
-        <p>Adaptive trading intelligence and signal learning. Wilson Score confidence, DCA/grid recommendations, regime awareness. <em style="color:var(--text3);font-size:.8rem">v1.1.0</em></p>
+        <p>Adaptive trading intelligence and signal learning. Wilson Score confidence, DCA/grid recommendations, regime awareness. <em style="color:var(--text3);font-size:.8rem">v1.2.0</em></p>
         <div class="brain-tags">
           <span class="brain-tag">Signal Learning</span>
           <span class="brain-tag">Wilson Score</span>
@@ -171,7 +179,7 @@
         <div class="brain-icon">&#128227;</div>
         <h3>Marketing Brain</h3>
         <div class="pkg">@timmeck/marketing-brain</div>
-        <p>Self-learning marketing intelligence. Content strategy optimization, engagement tracking, cross-platform synergies. <em style="color:var(--text3);font-size:.8rem">v0.3.0</em></p>
+        <p>Self-learning marketing intelligence. Content strategy optimization, engagement tracking, cross-platform synergies. <em style="color:var(--text3);font-size:.8rem">v0.4.0</em></p>
         <div class="brain-tags">
           <span class="brain-tag">Content Strategy</span>
           <span class="brain-tag">Engagement</span>
@@ -188,7 +196,7 @@
         <div class="brain-icon">&#9881;&#65039;</div>
         <h3>Brain Core</h3>
         <div class="pkg">@timmeck/brain-core</div>
-        <p>Shared infrastructure: IPC protocol, MCP servers, REST API base, DB connection, CLI colors, cross-brain peering. <em style="color:var(--text3);font-size:.8rem">v1.2.0</em></p>
+        <p>Shared infrastructure: IPC protocol, MCP servers, REST API base, DB connection, CLI colors, cross-brain peering. <em style="color:var(--text3);font-size:.8rem">v1.5.0</em></p>
         <div class="brain-tags">
           <span class="brain-tag">IPC</span>
           <span class="brain-tag">MCP</span>
@@ -246,8 +254,8 @@
         <div style="color:var(--text2);font-size:.85rem">All brains now use <code style="color:var(--cyan)">@timmeck/brain-core</code> for IPC, MCP, REST API, and CLI infrastructure.</div>
       </div>
       <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
-        <div class="port-name">427 Tests Passing</div>
-        <div style="color:var(--text2);font-size:.85rem">Comprehensive test suites across all repos: Brain (189), Trading (121), Marketing (85), Core (32).</div>
+        <div class="port-name">495 Tests Passing</div>
+        <div style="color:var(--text2);font-size:.85rem">Comprehensive test suites across all repos: Brain (189), Trading (121), Marketing (85), Core (100).</div>
       </div>
     </div>
   </section>
