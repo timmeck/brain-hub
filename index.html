@@ -145,12 +145,14 @@
         <div class="brain-icon">&#129504;</div>
         <h3>Brain</h3>
         <div class="pkg">@timmeck/brain</div>
-        <p>Adaptive error memory and code intelligence. Learns from every error, finds solutions via synapse network, prevents recurring bugs. <em style="color:var(--text3);font-size:.8rem">v2.1.0</em></p>
+        <p>Adaptive error memory, code intelligence, and persistent context. Never forgets preferences, decisions, sessions, or goals. 28 MCP tools, Hebbian synapse network, hybrid search. <em style="color:var(--text3);font-size:.8rem">v2.2.0</em></p>
         <div class="brain-tags">
           <span class="brain-tag">Error Memory</span>
+          <span class="brain-tag">Persistent Context</span>
+          <span class="brain-tag">Session Tracking</span>
           <span class="brain-tag">Hebbian Learning</span>
-          <span class="brain-tag">Code Analysis</span>
           <span class="brain-tag">Vector Search</span>
+          <span class="brain-tag">Decision History</span>
         </div>
         <div class="brain-links">
           <a href="https://github.com/timmeck/brain">GitHub</a>
@@ -196,11 +198,12 @@
         <div class="brain-icon">&#9881;&#65039;</div>
         <h3>Brain Core</h3>
         <div class="pkg">@timmeck/brain-core</div>
-        <p>Shared infrastructure: IPC protocol, MCP servers, REST API base, DB connection, CLI colors, cross-brain peering. <em style="color:var(--text3);font-size:.8rem">v1.5.0</em></p>
+        <p>Shared infrastructure: IPC protocol, MCP servers, REST API base, DB connection, CLI colors, memory types, cross-brain peering. <em style="color:var(--text3);font-size:.8rem">v1.6.0</em></p>
         <div class="brain-tags">
           <span class="brain-tag">IPC</span>
           <span class="brain-tag">MCP</span>
           <span class="brain-tag">REST API</span>
+          <span class="brain-tag">Memory Types</span>
           <span class="brain-tag">Cross-Brain</span>
         </div>
         <div class="brain-links">
@@ -231,7 +234,10 @@
   |  :7777  |   &lt;---&gt;  |  <span class="highlight">Brain</span>      |  &lt;---&gt; |  <span class="highlight">Brain</span>     |
   |  :7778  |          |  :7779     |        |  :7781     |
   +---------+          |  :7780     |        |  :7782     |
-                       +------------+        +------------+
+       |               +------------+        +------------+
+       |  <span class="highlight">Never Forget (v2.2)</span>
+       |  Memories · Sessions · Decisions
+       |  Changelog · Tasks · Project Docs
        |                      |                      |
   +----+----+          +------+------+        +------+------+
   |  SQLite  |          |   SQLite    |        |   SQLite    |
@@ -243,19 +249,31 @@
   </section>
 
   <section class="arch reveal" style="margin-bottom:40px">
-    <h2 class="section-title">What's New in v2</h2>
+    <h2 class="section-title">What's New in v2.2 — Never Forget</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+        <div class="port-name">Persistent Memory</div>
+        <div style="color:var(--text2);font-size:.85rem">Remember preferences, decisions, facts, goals, and lessons across sessions. Key-based upsert auto-supersedes old values. <code style="color:var(--cyan)">brain_remember</code> / <code style="color:var(--cyan)">brain_recall</code></div>
+      </div>
+      <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+        <div class="port-name">Session Tracking</div>
+        <div style="color:var(--text2);font-size:.85rem">Auto-starts sessions per working directory via hooks. Tracks goals, summaries, and outcomes. "What was I working on?" — answered instantly.</div>
+      </div>
+      <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+        <div class="port-name">Decision History</div>
+        <div style="color:var(--text2);font-size:.85rem">Record architecture decisions with alternatives and rationale. "Why did we choose Redux?" — Brain knows.</div>
+      </div>
+      <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+        <div class="port-name">Semantic Changelog</div>
+        <div style="color:var(--text2);font-size:.85rem">Track what changed and why. Linked to errors and decisions via synapse network.</div>
+      </div>
+      <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
+        <div class="port-name">Task & Goal Tracking</div>
+        <div style="color:var(--text2);font-size:.85rem">Priorities, subtasks, full context aggregation. <code style="color:var(--cyan)">brain_task_context</code> combines task + memories + decisions + changes.</div>
+      </div>
       <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
         <div class="port-name">Cross-Brain Peering</div>
         <div style="color:var(--text2);font-size:.85rem">Brains discover and query each other over IPC named pipes. Run <code style="color:var(--cyan)">brain peers</code> to see ecosystem status.</div>
-      </div>
-      <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
-        <div class="port-name">Shared Core (-2,200 LOC)</div>
-        <div style="color:var(--text2);font-size:.85rem">All brains now use <code style="color:var(--cyan)">@timmeck/brain-core</code> for IPC, MCP, REST API, and CLI infrastructure.</div>
-      </div>
-      <div class="port-row" style="flex-direction:column;align-items:flex-start;gap:6px">
-        <div class="port-name">495 Tests Passing</div>
-        <div style="color:var(--text2);font-size:.85rem">Comprehensive test suites across all repos: Brain (189), Trading (121), Marketing (85), Core (100).</div>
       </div>
     </div>
   </section>
